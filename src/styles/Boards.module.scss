@@ -1,0 +1,7 @@
+@import "./variables";
+
+.boards {
+display: flex;
+flex-wrap: wrap;
+gap: 40px;
+}
