@@ -1,11 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Nova+Round&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
+
 
 $title-font:'Nova Round', cursive;
+$cards-font: 'Ubuntu Mono', monospace;
 
 $dark-blue:rgb(26, 42, 108);
+$blue: rgb(53, 71, 127);
 $brown:rgb(178, 31, 31);
 $dark-yellow:rgb(253, 187, 45);
 $white: rgb(234, 234, 234);
 
 $brown-shadow: rgba(178, 31, 31, 0.5);
 $dark-yellow-shadow: rgba(253, 187, 45, 0.5);
+$white-shadow: rgba(234, 234, 234, 0.5);
