@@ -1,4 +1,6 @@
 import styles from "../styles/Board.module.scss";
+import AddTask from "./AddTask";
+import Task from "./Task";
 import { FiMoreHorizontal } from "react-icons/fi";
 
 const Board = () => {
@@ -11,8 +13,17 @@ const Board = () => {
         <FiMoreHorizontal />
       </header>
       <section className={styles.cards}>
-        <h2>Card1</h2>
-        <h2>Card2</h2>
+      <Task />
+      <Task />
+      <Task />
+      <Task />
+      <Task />
+      <Task />
+      <Task />
+      <Task />
+      <Task />
+      <Task />
+<AddTask />
       </section>
     </div>
   );

@@ -1,18 +1,36 @@
 @import "./variables";
+
 .Board {
   min-width: 290px;
   max-height: 100%;
+  border-radius: 16px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+  height: 50rem;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  &::-webkit-scrollbar {
+    width: 8px;
+  }
+  &::-webkit-scrollbar-track {
+    background: $blue;
+    border-radius: 8px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $blue-shadow;
+    border-radius: 8px;
+    box-shadow: inset -5px -5px 5px rgba(0, 0, 0, 0.5);
+  }
 
   header {
     display: flex;
-
+    
     .title {
       display: flex;
       flex: 1;
       align-items: center;
+      padding-left: 8px;
       color: $white;
       font-family: $title-font;
       font-weight: lighter;
@@ -24,11 +42,13 @@
     }
   }
 
-  .cards{
+  .cards {
     background-color: $white-shadow;
+    box-shadow: 3px 5px 10px $dark-yellow-shadow;
+    border: 1px solid $dark-yellow-shadow;
     border-radius: 1rem;
     padding: 8px;
-    color: $blue;
+    color: $dark-blue;
     font-family: $cards-font;
     display: flex;
     flex-direction: column;
