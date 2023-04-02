@@ -13,17 +13,10 @@ const Board = () => {
         <FiMoreHorizontal />
       </header>
       <section className={styles.cards}>
-      <Task />
-      <Task />
-      <Task />
-      <Task />
-      <Task />
-      <Task />
-      <Task />
-      <Task />
-      <Task />
-      <Task />
-<AddTask />
+        <Task />
+        <Task />
+        <Task />
+        <AddTask />
       </section>
     </div>
   );

@@ -1,1 +1,80 @@
 @import "./variables";
+.AddTask {
+  width: 100%;
+  .editTask {
+    background-color: $white-shadow;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 8px;
+    input {
+      background-color: $white;
+      border: none;
+      border-radius: 4px;
+      outline: none;
+      padding: 4px 8px;
+      font-size: 1rem;
+      box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+    }
+    footer {
+      display: flex;
+      padding: 0 8px;
+      justify-content: space-between;
+      align-items: center;
+
+      button {
+        cursor: pointer;
+        border: none;
+        outline: none;
+        font-weight: bold;
+        font-family: $cards-font;
+        background-color: $blue;
+        color: $white;
+        border-radius: 4px;
+        padding: 6px 16px;
+        box-shadow: inset -3px -5px 10px rgba(0, 0, 0, 0.5);
+        transition: 230ms;
+        &:hover {
+          background-color: $white-shadow;
+          border: 1px solid $blue;
+          color: $black-green;
+          box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+        }
+        &:active {
+          color: $white;
+          background-color: $blue;
+          box-shadow: inset 3px 5px 10px rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      svg {
+        cursor: pointer;
+      }
+    }
+  }
+
+  .addTaskDisplay {
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: $blue;
+    color: $white;
+    border-radius: 4px;
+    padding: 8px;
+    box-shadow: inset -3px -5px 10px rgba(0, 0, 0, 0.5);
+    transition: 230ms;
+    &:hover {
+      background-color: $white-shadow;
+      color: $black-green;
+      box-shadow: inset -3px -5px 10px $blue-shadow;
+      border: 1px solid $blue;
+    }
+    &:active {
+      color: $white;
+      background-color: $blue;
+      box-shadow: inset 3px 5px 10px rgba(0, 0, 0, 0.5);
+    }
+  }
+}
