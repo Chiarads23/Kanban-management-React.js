@@ -4,7 +4,7 @@ import AddTaskBoard from "./AddTask";
 import Board from "./Board";
 
 const Boards = () => {
-  const [_cards, set_cards] = useState([
+  const [_boards, set_boards] = useState([
     {
       id: Date.now() + Math.random() * 2,
       title: "To Do",
@@ -61,21 +61,61 @@ const Boards = () => {
       date: "",
       descr: "",
     };
-    const index = _cards.findIndex((item) => item.id === boardIndex);
-    if(index < 0) return;
+    const index = _boards.findIndex((item) => item.id === boardIndex);
+    if (index < 0) return;
 
-    const momentCards = [..._cards];
+    const momentCards = [..._boards];
     momentCards[index].tasks_List.push(task);
-    set_cards(momentCards)
+    set_boards(momentCards);
   };
+
+  const removeTask = (cardIndex, boardIndex) => {
+    const b_Index = _boards.findIndex((item) => item.id === boardIndex);
+    if (b_Index < 0) return;
+    const c_Index = _boards[b_Index].tasks_List.findIndex(
+      (item) => item.id === cardIndex
+    );
+    if (c_Index < 0) return;
+
+    const momentCards = [..._boards];
+    momentCards[b_Index].tasks.splice(c_Index, 1);
+    set_boards(momentCards);
+  };
+
+  const addBoard = (title) => {
+    set_boards([
+      ..._boards,
+      {
+        id: Date.now() + Math.random(),
+        title,
+        tasks_List: [],
+      },
+    ]);
+  };
+
+  const removeBoard= boardIndex => {
+ const momentBoards= _boards.filter((item)=> item.id !== boardIndex);
+ set_boards(momentBoards)
+  };
+
   return (
     <div className={styles.boards}>
-      {_cards.map((item) => (
-        <Board key={item.id} board={item} />
+      {_boards.map((item) => (
+        <Board 
+        key={item.id} 
+        board={item} 
+        removeBoard={removeBoard}
+        addTask={addTask}
+        removeTask={removeTask}
+        />
       ))}
 
       <section className={styles.addBoard}>
-        <AddTaskBoard text="Add Board" placeholder="New Board Title" />
+        <AddTaskBoard 
+        text="Add Board" 
+        placeholder="New Board Title" 
+        onSubmit={(value)=> addBoard(value)}
+        />
       </section>
     </div>
   );

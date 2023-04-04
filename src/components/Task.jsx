@@ -23,19 +23,22 @@ const Task = (props) => {
               className={styles.Dropdown}
               //    onClose={()=> setShowDropdown(false)}
             >
-              <p>Delete Task</p>
+              <p onClick={() => props.removeTask(props.task?.id, props.boardId)}>
+                Delete Task
+              </p>
             </Dropdown>
           )}
         </div>
       </header>
       <main>{props.task?.title}</main>
       <footer>
-      {props.task?.date &&  
-        <p>
-          <FaRegClock />
-       {props.task?.date} 
-        </p>} 
-     
+        {props.task?.date && (
+          <p>
+            <FaRegClock />
+            {props.task?.date}
+          </p>
+        )}
+
         <p>
           <FiCheckSquare />
           1/4

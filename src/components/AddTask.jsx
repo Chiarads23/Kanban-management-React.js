@@ -4,6 +4,7 @@ import { GrClose } from "react-icons/gr";
 
 const AddTaskBoard = (props) => {
   const [addTask, setAddTask] = useState(false);
+  const [inputValue, setInputValue]= useState( '');
 
   return (
     <div className={styles.AddTask}>
@@ -12,13 +13,16 @@ const AddTaskBoard = (props) => {
           className={`${styles.editTask} ${props.editClass || ''}`}
           onSubmit={(e) => {
             e.preventDefault();
-            if (props.onSubmit) props.onSubmit();
+            if (props.onSubmit) props.onSubmit(inputValue);
+            setAddTask(false);
+            setInputValue('')
           }}
         >
           <input
           autoFocus
             type="text"
-            text={props.text}
+           value={inputValue}
+           onChange= {(e)=> setInputValue(e.target.value)}
             placeholder={props.placeholder || props.text}
           />
           <footer>

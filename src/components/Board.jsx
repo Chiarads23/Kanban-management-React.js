@@ -23,7 +23,7 @@ const Board = (props) => {
               className={styles.Dropdown}
               // onClose={()=> setShowDropdown(false)}
             >
-              <p>Delete Board</p>
+              <p onClick={()=> props.removeBoard(props.board?.id)}>Delete Board</p>
             </Dropdown>
           )}
         </div>
@@ -32,12 +32,19 @@ const Board = (props) => {
         {
           props.board?.tasks_List?.map((item)=> (
          <Task key={item.id}
-         task={item}/>   
+         task={item}
+         removeTask={props.removeTask}
+         boardId={props.board?.id}
+         />   
           ))
         }
         
      
-        <AddTaskBoard text="Add Task" placeholder="New Task Title" />
+        <AddTaskBoard 
+        text="Add Task" 
+        placeholder="New Task Title" 
+        onSubmit={(value)=> props.addTask(value, props.board?.id) }
+        />
       </section>
     </div>
   );
