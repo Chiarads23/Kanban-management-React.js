@@ -6,4 +6,12 @@ display: flex;
 justify-content: center;
 flex-wrap: wrap;
 gap: 40px;
+.addBoard {
+    min-width: 304px;
+
+    p{
+    font-family: $cards-font;
+}
+}
+
 }

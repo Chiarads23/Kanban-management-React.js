@@ -1,5 +1,5 @@
 import styles from "../styles/Board.module.scss";
-import AddTask from "./AddTask";
+import AddTaskBoard from "./AddTask";
 import Task from "./Task";
 import { FiMoreHorizontal } from "react-icons/fi";
 
@@ -16,7 +16,9 @@ const Board = () => {
         <Task />
         <Task />
         <Task />
-        <AddTask />
+        <AddTaskBoard  
+        text='Add Task'
+        placeholder='New Task Title'/>
       </section>
     </div>
   );

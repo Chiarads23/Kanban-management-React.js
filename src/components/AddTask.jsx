@@ -2,23 +2,24 @@ import { useState } from "react";
 import styles from '../styles/AddTask.module.scss';
 import { GrClose } from "react-icons/gr";
 
-const AddTask = (props) => {
+const AddTaskBoard = (props) => {
   const [addTask, setAddTask] = useState(false);
 
   return (
     <div className={styles.AddTask}>
       {addTask ? (
         <form
-          className={`${styles.editTask} ${props.editTask || ''}`}
+          className={`${styles.editTask} ${props.editClass || ''}`}
           onSubmit={(e) => {
             e.preventDefault();
             if (props.onSubmit) props.onSubmit();
           }}
         >
           <input
+          autoFocus
             type="text"
-            defaultValue={props.text}
-            placeholder='New Task Title'
+            text={props.text}
+            placeholder={props.placeholder || props.text}
           />
           <footer>
             <button type="submit">{props.buttonText || "Add"}</button>
@@ -27,11 +28,11 @@ const AddTask = (props) => {
         </form>
       ) : (
         <p 
-        className={`${styles.addTaskDisplay} ${props.displayClass || ''}`}
+        className={`${styles.addTaskBoardDisplay} ${props.displayClass ? props.displayClass : ''}`}
         onClick={()=> setAddTask(true)}>{props.text || "Add Task"}</p>
       )}
     </div>
   );
 };
 
-export default AddTask;
+export default AddTaskBoard;

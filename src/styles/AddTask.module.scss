@@ -1,4 +1,6 @@
 @import "./variables";
+@import "./mixins";
+
 .AddTask {
   width: 100%;
   .editTask {
@@ -24,27 +26,12 @@
       align-items: center;
 
       button {
-        cursor: pointer;
-        border: none;
-        outline: none;
-        font-weight: bold;
-        font-family: $cards-font;
-        background-color: $blue;
-        color: $white;
-        border-radius: 4px;
-        padding: 6px 16px;
-        box-shadow: inset -3px -5px 10px rgba(0, 0, 0, 0.5);
-        transition: 230ms;
+        @include buttonLayout;
         &:hover {
-          background-color: $white-shadow;
-          border: 1px solid $blue;
-          color: $black-green;
-          box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+          @include Hover;
         }
         &:active {
-          color: $white;
-          background-color: $blue;
-          box-shadow: inset 3px 5px 10px rgba(0, 0, 0, 0.5);
+          @include Active;
         }
       }
 
@@ -54,27 +41,14 @@
     }
   }
 
-  .addTaskDisplay {
-    display: flex;
-    justify-content: center;
-    cursor: pointer;
-    font-weight: bold;
-    background-color: $blue;
-    color: $white;
-    border-radius: 4px;
-    padding: 8px;
-    box-shadow: inset -3px -5px 10px rgba(0, 0, 0, 0.5);
-    transition: 230ms;
+  p {
+    text-align: center;
+    @include buttonLayout;
     &:hover {
-      background-color: $white-shadow;
-      color: $black-green;
-      box-shadow: inset -3px -5px 10px $blue-shadow;
-      border: 1px solid $blue;
+      @include Hover;
     }
     &:active {
-      color: $white;
-      background-color: $blue;
-      box-shadow: inset 3px 5px 10px rgba(0, 0, 0, 0.5);
+      @include Active;
     }
   }
 }
