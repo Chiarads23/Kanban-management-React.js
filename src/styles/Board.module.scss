@@ -1,6 +1,7 @@
 @import "./variables";
 
 .Board {
+
   min-width: 304px;
   max-height: 100%;
   border-radius: 16px;
@@ -18,14 +19,14 @@
     border-radius: 8px;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: $light-blue;
+    background-color: $light-blue-shadow;
     border-radius: 8px;
-    box-shadow: inset -5px -5px 5px rgba(0, 0, 0, 0.5);
+    box-shadow: inset -5px -5px 5px rgba(0, 27, 66, 0.5);
   }
 
   header {
     display: flex;
-    
+
     .title {
       display: flex;
       flex: 1;
@@ -40,14 +41,34 @@
         color: $dark-yellow-shadow;
       }
     }
-    svg {
-      color: $white;
+    .moreButton {
+      position: relative;
+
+      svg {
+        color: $white;
+        cursor: pointer;
+        &:hover {
+          color: $light-blue;
+        }
+      }
+      main {
+        background-color: $white-shadow;
+        font-family: $cards-font;
+        font-weight: bold;
+        border: 1px solid $brown;
+        color: $brown;
+        padding: 8px;
+        width: 120px;
+        border-radius: 4px;
+        box-shadow: 1px 3px 8px $white-shadow;
+      }
     }
   }
 
   .cards {
+    
     background-color: $white;
-     box-shadow: 3px -5px 10px $white-shadow;
+    box-shadow: 3px -5px 10px $white-shadow;
     border: 1px solid $dark-yellow-shadow;
     border-radius: 1rem;
     padding: 8px;

@@ -3,7 +3,7 @@ import Boards from './Boards';
 
 const Main =() => {
     return (
-        <main>
+        <main className={styles.main}>
             <Boards />
         </main>
     )

@@ -1,39 +1,60 @@
 @import "./variables";
 
-.task{
+.task {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 8px;
+  gap: 8px;
+  border-radius: 8px;
+  background-color: $blue-shadow;
+  box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+  height: 100%;
+  overflow-y: auto;
+  header {
     display: flex;
-    flex: 1;
-    flex-direction: column;
-    padding: 8px;
-    gap: 8px;
-    border-radius: 8px;
-    background-color: $blue-shadow;
-    box-shadow: 1px 3px 8px rgba(0,0,0,0.5);
-   height: 100%;
-   overflow-y: auto;
-header{
-    display: flex;
-    gap:4px;
+    gap: 4px;
 
     .labels {
-        display: flex;
-        flex: 1;
-        gap: 8px;
-    color: $white;
-}
-svg {color: $dark-blue;}
-}
-main {
+      display: flex;
+      flex: 1;
+      gap: 8px;
+      color: $white;
+    }
+    
+    .moreTaskButton{
+        position: relative;
+    svg {
+      color: $dark-blue;
+      cursor: pointer;
+      &:hover {
+        color: $white;
+
+      }
+    }
+    main {
+        background-color: $white-shadow;
+        font-family: $cards-font;
+        font-weight: bold;
+        border: 1px solid $brown;
+        color: $brown;
+        padding: 8px;
+        width: 120px;
+        border-radius: 4px;
+        box-shadow: 1px 3px 8px $white-shadow;
+      }}
+  }
+  main {
     font-weight: bold;
-}
-footer{
+  }
+  footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    p{
-        display: flex;
-        gap: 4px;
-        align-items: center;
+    p {
+      display: flex;
+      gap: 4px;
+      align-items: center;
     }
-}
+  }
 }

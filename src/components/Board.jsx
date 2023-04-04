@@ -1,24 +1,43 @@
+import { useState } from "react";
 import styles from "../styles/Board.module.scss";
 import AddTaskBoard from "./AddTask";
+import Dropdown from "./Dropdown";
 import Task from "./Task";
 import { FiMoreHorizontal } from "react-icons/fi";
 
-const Board = () => {
+const Board = (props) => {
+  const [showDropdown, setShowDropdown] = useState(false);
+
+
+
   return (
     <div className={styles.Board}>
       <header>
         <h3 className={styles.title}>
-          To do<span>2</span>
+         {props.board?.title}<span>{`${props.board?.tasks_List?.length}`}</span>
         </h3>
-        <FiMoreHorizontal />
+        <div className={styles.moreButton}>
+          <FiMoreHorizontal onClick={() => setShowDropdown(true)} />
+          {showDropdown && (
+            <Dropdown
+              className={styles.Dropdown}
+              // onClose={()=> setShowDropdown(false)}
+            >
+              <p>Delete Board</p>
+            </Dropdown>
+          )}
+        </div>
       </header>
       <section className={styles.cards}>
-        <Task />
-        <Task />
-        <Task />
-        <AddTaskBoard  
-        text='Add Task'
-        placeholder='New Task Title'/>
+        {
+          props.board?.tasks_List?.map((item)=> (
+         <Task key={item.id}
+         task={item}/>   
+          ))
+        }
+        
+     
+        <AddTaskBoard text="Add Task" placeholder="New Task Title" />
       </section>
     </div>
   );
