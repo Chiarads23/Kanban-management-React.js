@@ -33,6 +33,7 @@
       }
     }
     main {
+      cursor: pointer;
         background-color: $white-shadow;
         font-family: $cards-font;
         font-weight: bold;
@@ -42,6 +43,9 @@
         width: 120px;
         border-radius: 4px;
         box-shadow: 1px 3px 8px $white-shadow;
+        &:active {
+          box-shadow: 1px 3px 8px rgba(0, 0, 0, 0.5);
+        }
       }}
   }
   main {

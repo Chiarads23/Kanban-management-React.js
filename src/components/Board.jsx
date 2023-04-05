@@ -9,7 +9,6 @@ const Board = (props) => {
   const [showDropdown, setShowDropdown] = useState(false);
 
 
-
   return (
     <div className={styles.Board}>
       <header>
@@ -21,7 +20,7 @@ const Board = (props) => {
           {showDropdown && (
             <Dropdown
               className={styles.Dropdown}
-              // onClose={()=> setShowDropdown(false)}
+              onClose={()=> setShowDropdown(false)}
             >
               <p onClick={()=> props.removeBoard(props.board?.id)}>Delete Board</p>
             </Dropdown>
@@ -39,7 +38,6 @@ const Board = (props) => {
           ))
         }
         
-     
         <AddTaskBoard 
         text="Add Task" 
         placeholder="New Task Title" 

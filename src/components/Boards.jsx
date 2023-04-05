@@ -72,13 +72,14 @@ const Boards = () => {
   const removeTask = (cardIndex, boardIndex) => {
     const b_Index = _boards.findIndex((item) => item.id === boardIndex);
     if (b_Index < 0) return;
+
     const c_Index = _boards[b_Index].tasks_List.findIndex(
       (item) => item.id === cardIndex
     );
     if (c_Index < 0) return;
 
     const momentCards = [..._boards];
-    momentCards[b_Index].tasks.splice(c_Index, 1);
+    momentCards[b_Index].tasks_List.splice(c_Index, 1);
     set_boards(momentCards);
   };
 
@@ -93,28 +94,29 @@ const Boards = () => {
     ]);
   };
 
-  const removeBoard= boardIndex => {
- const momentBoards= _boards.filter((item)=> item.id !== boardIndex);
- set_boards(momentBoards)
+  const removeBoard = (boardIndex) => {
+    const momentBoards = _boards.filter((item) => item.id !== boardIndex);
+    set_boards(momentBoards);
   };
 
+  
   return (
     <div className={styles.boards}>
       {_boards.map((item) => (
-        <Board 
-        key={item.id} 
-        board={item} 
-        removeBoard={removeBoard}
-        addTask={addTask}
-        removeTask={removeTask}
+        <Board
+          key={item.id}
+          board={item}
+          removeBoard={removeBoard}
+          addTask={addTask}
+          removeTask={removeTask}
         />
       ))}
 
       <section className={styles.addBoard}>
-        <AddTaskBoard 
-        text="Add Board" 
-        placeholder="New Board Title" 
-        onSubmit={(value)=> addBoard(value)}
+        <AddTaskBoard
+          text="Add Board"
+          placeholder="New Board Title"
+          onSubmit={(value) => addBoard(value)}
         />
       </section>
     </div>
