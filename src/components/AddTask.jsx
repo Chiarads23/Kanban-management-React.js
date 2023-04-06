@@ -4,7 +4,7 @@ import { GrClose } from "react-icons/gr";
 
 const AddTaskBoard = (props) => {
   const [addTask, setAddTask] = useState(false);
-  const [inputValue, setInputValue] = useState("");
+  const [inputValue, setInputValue] = useState(props.default || "");
 
   return (
     <div className={styles.AddTask}>

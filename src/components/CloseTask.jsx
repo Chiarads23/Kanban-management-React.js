@@ -5,7 +5,8 @@ const CloseTask =(props) => {
 return (
     <div className={styles.closetask} style= {{backgroundColor: props.color}}>
         {props.text}
-        {props.close && <GrClose onClick={()=> props.onClose ? props.onClose() : '' } />}
+        {props.close &&
+         <GrClose onClick={()=> props.onClose ? props.onClose() : '' } />}
     </div>
 )
 }

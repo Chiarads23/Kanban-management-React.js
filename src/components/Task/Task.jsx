@@ -12,7 +12,13 @@ const Task = (props) => {
 
   return (
     <>
-      {showModal && <TaskModal onClose={() => setShowModal(false)} />}
+      {showModal && 
+      <TaskModal 
+      task={props.task}
+      onClose={() => setShowModal(false)} 
+      updateTask={props.updateTask}
+      boardId= {props.boardId}
+      />}
       <div
         className={styles.task}
         draggable
@@ -35,7 +41,7 @@ const Task = (props) => {
             {showDropdown && (
               <Dropdown
                 className={styles.Dropdown}
-                //  onClose={()=> setShowDropdown(false)}
+                // onClose={()=> setShowDropdown(false)}
               >
                 <p
                   onClick={() =>
@@ -57,10 +63,12 @@ const Task = (props) => {
             </p>
           )}
 
-          <p>
+      {   
+      props.task?.duties?.length > 0 &&
+      ( <p>
             <FiCheckSquare />
-            1/4
-          </p>
+            {props.task?.duties?.filter((item)=> item.completed).length}/{props.task?.duties?.length} 
+          </p>)}
         </footer>
       </div>
     </>
