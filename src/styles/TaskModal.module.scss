@@ -1,0 +1,56 @@
+@import "./variables";
+@import "./mixins";
+
+.taskModal {
+  padding: 32px;
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  .container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    .title {
+      font-weight: bold;
+      font-size: 1.3rem;
+      font-family: $title-font;
+      color: $black;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .body{
+        width: fit-content;
+
+        input {
+            border: none;
+            border-radius: 4px;
+            padding: 8px;
+            font-size: 1rem;
+        }
+    }
+
+    .labelColors{
+display: flex;
+gap: 12px;
+align-items: center;
+li{
+    cursor: pointer;
+   list-style: none;
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    box-shadow: 1px 3px 5px $black-shadow;
+    transition: 230ms;
+    &:active {
+        box-shadow: inset 1px 3px 5px $black-shadow;;
+    }
+}
+    }
+  }
+}

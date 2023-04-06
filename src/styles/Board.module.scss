@@ -35,7 +35,7 @@
       color: $white;
       font-family: $title-font;
       font-weight: lighter;
-
+      gap: 8px;
       span {
         margin-left: 4px;
         color: $dark-yellow-shadow;
@@ -51,7 +51,7 @@
           color: $light-blue;
         }
       }
-      main {
+      p {
         cursor: pointer;
         background-color: $white-shadow;
         font-family: $cards-font;

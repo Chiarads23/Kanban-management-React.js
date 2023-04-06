@@ -2,7 +2,7 @@ import { useState } from "react";
 import styles from "../styles/Board.module.scss";
 import AddTaskBoard from "./AddTask";
 import Dropdown from "./Dropdown";
-import Task from "./Task";
+import Task from "./Task/Task";
 import { FiMoreHorizontal } from "react-icons/fi";
 
 const Board = (props) => {
@@ -20,7 +20,7 @@ const Board = (props) => {
           {showDropdown && (
             <Dropdown
               className={styles.Dropdown}
-              // onClose={()=> setShowDropdown(false)}
+              //  onClose={()=> setShowDropdown(false)}
             >
               <p onClick={()=> props.removeBoard(props.board?.id)}>Delete Board</p>
             </Dropdown>
@@ -34,6 +34,8 @@ const Board = (props) => {
          task={item}
          removeTask={props.removeTask}
          boardId={props.board?.id}
+         handleDragEnd= {props.handleDragEnd}
+         handleDragEnter = {props.handleDragEnter}
          />   
           ))
         }

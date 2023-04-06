@@ -52,6 +52,11 @@ const Boards = () => {
     },
   ]);
 
+  const [target, setTarget] = useState({
+    cardIndex: '',
+    boardIndex: ''
+  })
+
   const addTask = (title, boardIndex) => {
     const task = {
       id: Date.now() + Math.random(),
@@ -99,7 +104,38 @@ const Boards = () => {
     set_boards(momentBoards);
   };
 
+  const handleDragEnter =(cardIndex, boardIndex) => {
+setTarget({
+  cardIndex,
+  boardIndex
+})
+  }
   
+  const handleDragEnd =(cardIndex, boardIndex) => {
+    let bIndex_2, cIndex_2, bIndex_3, cIndex_3;
+
+    bIndex_2=_boards.findIndex(item=>item.id===boardIndex)
+    if (bIndex_2 < 0)return;
+
+    cIndex_2= _boards[bIndex_2].tasks_List?.findIndex(item=> item.id===cardIndex)
+    if(cIndex_2 < 0)return;
+
+    bIndex_3=_boards.findIndex(item=>item.id===target.boardIndex)
+    if (bIndex_3 < 0)return;
+
+    cIndex_3= _boards[bIndex_2].tasks_List?.findIndex(item=> item.id===target.cardIndex)
+    if(cIndex_3 < 0)return;
+
+    const momentBoards= [..._boards]
+    const momentCards= momentBoards[bIndex_2].tasks_List[cIndex_2]
+
+    momentBoards[bIndex_2].tasks_List.splice(cIndex_2, 1)
+    momentBoards[bIndex_3].tasks_List.splice(cIndex_3, 0, momentCards)
+
+    set_boards(momentBoards)
+  }
+
+
   return (
     <div className={styles.boards}>
       {_boards.map((item) => (
@@ -109,6 +145,8 @@ const Boards = () => {
           removeBoard={removeBoard}
           addTask={addTask}
           removeTask={removeTask}
+          handleDragEnd={handleDragEnd}
+          handleDragEnter= {handleDragEnter}
         />
       ))}
 

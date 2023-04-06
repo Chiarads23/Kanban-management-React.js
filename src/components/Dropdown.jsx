@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import styles from "../styles/Dropdown.module.scss";
+// import styles from "../styles/Dropdown.module.scss";
 
 const Dropdown = (props) => {
   const dropdownRef = useRef();
@@ -14,15 +14,21 @@ const Dropdown = (props) => {
 
   useEffect(() => {
     document.addEventListener("click", handleClick);
+    
     return () => {
       document.removeEventListener("click", handleClick);
     };
   });
 
   return (
-    <main className={styles.Dropdown} ref={dropdownRef}>
+    <div style={{
+      position: 'absolute',
+      top: '100%',
+      right:' 0',
+    }}
+     ref={dropdownRef}>
       {props.children}
-    </main>
+    </div>
   );
 };
 

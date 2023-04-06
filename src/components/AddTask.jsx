@@ -10,7 +10,7 @@ const AddTaskBoard = (props) => {
     <div className={styles.AddTask}>
       {addTask ? (
         <form
-          className={`${styles.editTask} ${props.editClass || ""}`}
+          className={styles.editTask}
           onSubmit={(e) => {
             e.preventDefault();
             if (props.onSubmit) props.onSubmit(inputValue);
@@ -32,9 +32,7 @@ const AddTaskBoard = (props) => {
         </form>
       ) : (
         <p
-          className={`${styles.addTaskBoardDisplay} ${
-            props.displayClass ? props.displayClass : ""
-          }`}
+          className={styles.addTaskBoardDisplay} 
           onClick={() => setAddTask(true)}
         >
           {props.text || "Add Task"}
